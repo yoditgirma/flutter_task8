@@ -5,7 +5,7 @@ import 'package:flutter_bloc_app/counter/bloc/counter_event.dart';
 import 'package:flutter_bloc_app/counter/bloc/counter_state.dart';
 
 class CounterBloc extends Bloc<CounterEvent, CounterState> {
-  Timer? _timer;
+  Timer? timer;
   CounterBloc() : super(CounterState(counter: 0)) {
     // TASK 1
     on<IncrementCounterEvent>((event, emit) {
@@ -30,21 +30,20 @@ class CounterBloc extends Bloc<CounterEvent, CounterState> {
 
     // TASK 3
     on<StartTimerEvent>((event, emit) {
-      _timer?.cancel();
-      _timer = Timer.periodic(Duration(seconds: 1), (_) {
-        final current = state.counter;
-        emit(CounterState(counter: current + 1));
+      timer?.cancel();
+      timer = Timer.periodic(Duration(seconds: 1), (_) {
+        add(IncrementCounterEvent());
       });
     });
 
     on<StopTimerEvent>((event, emit) {
-      _timer?.cancel();
+      timer?.cancel();
     });
   }
 
   @override
   Future<void> close() {
-    _timer?.cancel();
+    timer?.cancel();
     return super.close();
   }
 }
