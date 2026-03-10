@@ -50,6 +50,10 @@ class _CounterScreenState extends State<CounterScreen> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     ElevatedButton(
+                      style: ButtonStyle(
+                        backgroundColor: WidgetStateProperty.all(Colors.green),
+                        foregroundColor: WidgetStateProperty.all(Colors.white),
+                      ),
                       onPressed: () =>
                           context.read<CounterBloc>().add(StartTimerEvent()),
                       child: Text('Start'),
@@ -58,6 +62,10 @@ class _CounterScreenState extends State<CounterScreen> {
                     SizedBox(width: 20),
 
                     ElevatedButton(
+                      style: ButtonStyle(
+                        backgroundColor: WidgetStateProperty.all(Colors.red),
+                        foregroundColor: WidgetStateProperty.all(Colors.white),
+                      ),
                       onPressed: () =>
                           context.read<CounterBloc>().add(StopTimerEvent()),
                       child: Text('Stop'),
