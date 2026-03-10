@@ -14,9 +14,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(colorScheme: .fromSeed(seedColor: Colors.deepPurple)),
-      home: MultiBlocProvider(
-        providers: [BlocProvider(create: (context) => CounterBloc())],
+      home: BlocProvider(
+        create: (context) => CounterBloc(),
         child: CounterScreen(),
       ),
     );
