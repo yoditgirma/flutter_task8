@@ -76,6 +76,3 @@ https://github.com/user-attachments/assets/3f6485a8-70aa-4501-9376-a2f6ce906858
 
 **Yodit**
 
----
-
-⭐ If you like this project, consider giving it a star.
